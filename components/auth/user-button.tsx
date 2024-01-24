@@ -1,7 +1,8 @@
 "use client";
 
 import { FaUser } from "react-icons/fa";
-import { ExitIcon } from "@radix-ui/react-icons"
+import { ExitIcon } from "@radix-ui/react-icons";
+import { TrashIcon } from "@radix-ui/react-icons";
 
 import {
   DropdownMenu,
@@ -9,16 +10,17 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Avatar,
-  AvatarImage,
-  AvatarFallback,
-} from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import { LogoutButton } from "@/components/auth/logout-button";
+import DeleteAccountButton from "./delete-account-button";
 
 export const UserButton = () => {
   const user = useCurrentUser();
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <DropdownMenu>
@@ -37,6 +39,12 @@ export const UserButton = () => {
             Logout
           </DropdownMenuItem>
         </LogoutButton>
+        <DropdownMenuItem className="bg-red-100 focus:bg-red-200">
+          <DeleteAccountButton>
+            <TrashIcon className="h-4 w-r mr-2" />
+            <span className="font-bold">Delete account</span>
+          </DeleteAccountButton>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

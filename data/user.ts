@@ -19,3 +19,20 @@ export const getUserById = async (id: string) => {
     return null;
   }
 };
+
+export type FetchUserResult = {
+  status: "ok" | "error";
+  role?: string;
+} | null;
+
+export const fetchUserById = async (id: string): Promise<FetchUserResult> => {
+  try {
+    const existingUser = await fetch(
+      `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/checkUser?id=` + id
+    ).then((res) => res.json());
+    return existingUser;
+  } catch (error) {
+    console.error("Error fetching user", error);
+    return null;
+  }
+};

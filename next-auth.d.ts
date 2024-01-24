@@ -10,5 +10,11 @@ export type ExtendedUser = DefaultSession["user"] & {
 declare module "next-auth" {
   interface Session {
     user: ExtendedUser;
+    terminate?: TerminationReason;
   }
 }
+
+export type TerminationReason = {
+  status: "TERMINATED" | "NOT_TERMINATED";
+  reason: "USER_NOT_FOUND" | "SESSION_EXPIRED";
+};
