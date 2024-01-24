@@ -40,7 +40,7 @@ export default function ChangingFoodName() {
   }, []);
 
   return (
-    <span className="bg-amber-50 rounded-sm p-1 text-amber-800">
+    <span className="bg-amber-100 rounded-sm p-1 text-amber-800">
       {foodName}
     </span>
   );

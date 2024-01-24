@@ -15,6 +15,11 @@ import ChangingFoodName from "@/components/our-ui/dinevate-landing/changing-food
 import FakeSearchBar from "@/components/our-ui/dinevate-landing/fake-search-bar";
 import Nav from "@/components/our-ui/dinevate-landing/nav";
 import Footer from "@/components/our-ui/dinevate-landing/footer";
+import DinevateLogo from "@/components/ui/dinevate-logo";
+
+import dinevate3 from "@/public/dinevate-site/gallery/dinevate-3.png";
+import dinevate4 from "@/public/dinevate-site/gallery/dinevate-4.png";
+import dinevate5 from "@/public/dinevate-site/gallery/dinevate-5.png";
 
 const font = Montserrat({
   subsets: ["latin"],
@@ -71,7 +76,7 @@ export default function Home() {
             </span>
             <EnterIcon className="w-6 h-6" />
           </Button>
-          <span className="text-xs mt-[2rem]">
+          <span className="text-xs mt-[2rem] bg-black/40 p-1 rounded-sm">
             24/7 SUPPORT & QUIT ANYTIME & NEWEST TECHNOLOGY
           </span>
         </div>
@@ -137,6 +142,25 @@ export default function Home() {
             </div>
           </figcaption>
         </figure>
+
+        <Image
+          src={dinevate3}
+          alt="Receipts on the wall shows orders from different food order apps like Dinevate, Doordash, Grubhub and UberEats. They users are able to see the orders from different providers on the same tablet."
+          placeholder="blur"
+          className="rounded-lg shadow-md mt-[2rem]"
+        />
+
+        <Image
+          src={dinevate5}
+          alt="A man wearing Dinevate Tshirt"
+          placeholder="blur"
+          className="rounded-lg shadow-md mt-[2rem]"
+        />
+
+        <p className="text-stone-800 font-semibold mt-[2rem] tracking-wider">
+          With Dinevate, your orders are going to be more visible, more
+          systematical and more profitable.
+        </p>
       </section>
 
       <section className="bg-stone-900 p-10">
@@ -192,23 +216,22 @@ export default function Home() {
               />
             </div>
           ))}
-          <div className="flex gap-2 justify-center items-center hover:scale-105 transition-all duration-500 ease-in-out">
-            <Image
-              src="/dinevate-site/dinevate-brown-logo.svg"
-              height={30}
-              width={30}
-              alt="Dinevate logo"
-            />
-            <span
-              className={`text-stone-300 ${font.className} uppercase text-lg tracking-[2px]`}
-            >
-              Dinevate
-            </span>
-          </div>
+
+          <DinevateLogo
+            variant="elegant"
+            className="hover:scale-105 transition-all duration-500 ease-in-out"
+          />
         </div>
         <span className="text-stone-300 tracking-wider italic flex justify-center mt-[2rem]">
           and more supported platforms...
         </span>
+
+        <Image
+          src={dinevate4}
+          alt="Dinevate tablet in action"
+          placeholder="blur"
+          className="rounded-lg shadow-md mt-[2rem]"
+        />
       </section>
 
       <section className="bg-white p-10">
@@ -263,14 +286,19 @@ export default function Home() {
           divColor="bg-white"
           textColor="text-white"
         />
+        <h2
+          className={`text-white uppercase text-4xl mb-[2rem] tracking-[2px] ${fontHeader.className} font-bold`}
+        >
+          GOOGLE AND SOCIAL MEDIA MARKETING
+        </h2>
 
         {/* Google style search bar */}
         <FakeSearchBar>
-          <h2
+          <h3
             className={`text-black uppercase text-2x tracking-[2px] ${fontHeader.className} font-bold`}
           >
             BEST <ChangingFoodName /> NEAR ME
-          </h2>
+          </h3>
         </FakeSearchBar>
         <span className="text-white text-xs">
           Your customers will search for these*
